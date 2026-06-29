@@ -27,15 +27,15 @@ const (
 		"JoyCode/2.7.5 Chrome/133.0.0.0 Electron/35.2.0 Safari/537.36"
 
 	// color gateway 签名（逆向自 JoyCode 2.7.5 / joycoder-editor 3.8.57）
-	colorGatewayAppID   = "joycode_ide"
-	colorGatewayPath    = "/api"
-	colorHMACKey        = "0691a3f0b37b4a85aeb63ad0fc7db3ed"
+	colorGatewayAppID = "joycode_ide"
+	colorGatewayPath  = "/api"
+	colorHMACKey      = "0691a3f0b37b4a85aeb63ad0fc7db3ed"
 )
 
 var (
-    BaseURL            = envOr("JOYCODE_BASE_URL", "https://joycode-api.jd.com")
-    SaasBaseURL        = envOr("JOYCODE_SAAS_BASE_URL", "http://joycode-api-saas.jd.com")
-    DefaultColorBaseURL = envOr("JOYCODE_COLOR_BASE_URL", "https://api-ai.jd.com")
+	BaseURL             = envOr("JOYCODE_BASE_URL", "https://joycode-api.jd.com")
+	SaasBaseURL         = envOr("JOYCODE_SAAS_BASE_URL", "http://joycode-api-saas.jd.com")
+	DefaultColorBaseURL = envOr("JOYCODE_COLOR_BASE_URL", "https://api-ai.jd.com")
 )
 
 // colorEndpoint 把旧 v1 路径映射到 (functionId, v2 路径)。
@@ -95,10 +95,10 @@ func (r *gzipReadCloser) Close() error {
 
 // envOr 读取环境变量，为空则返回 fallback
 func envOr(key, fallback string) string {
-    if v := os.Getenv(key); v != "" {
-        return v
-    }
-    return fallback
+	if v := os.Getenv(key); v != "" {
+		return v
+	}
+	return fallback
 }
 
 func NewClient(ptKey, userID string) *Client {
